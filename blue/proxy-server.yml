@@ -11,13 +11,13 @@ zuul:
   routes:
     website-application:
       path: /**
-      serviceId: green-website-application
+      serviceId: website-application
       sensitiveHeaders:
     news-application:
       path: /news/**
-      serviceId: green-news-application
+      serviceId: news-application
       sensitiveHeaders:
     admin-application:
       path: /admin/**
-      serviceId: green-admin-application
+      serviceId: admin-application
       sensitiveHeaders:
