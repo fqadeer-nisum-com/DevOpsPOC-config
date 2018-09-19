@@ -13,4 +13,4 @@ feign.hystrix.enabled: true
 
 hazelcast.max.no.heartbeat.seconds: 6
 
-biz-application.name: green-biz-application
+biz-application.name: biz-application
