@@ -11,7 +11,7 @@ zuul:
   routes:
     website-application:
       path: /**
-      serviceId: green-website-application
+      serviceId: website-application
       sensitiveHeaders:
     news-application:
       path: /news/**
