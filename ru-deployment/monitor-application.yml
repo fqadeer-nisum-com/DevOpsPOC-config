@@ -1,0 +1,6 @@
+endpoints.health.enabled: true
+
+turbine:
+  appConfig: green-biz-application, green-admin-application, green-news-application, green-proxy-server
+  clusterNameExpression: "'default'"
+  instanceUrlSuffix: application/hystrix.stream
