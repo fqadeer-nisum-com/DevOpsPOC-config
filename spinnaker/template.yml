@@ -1,0 +1,102 @@
+{
+  "expectedArtifacts": [
+    {
+      "defaultArtifact": {
+        "kind": "default.docker",
+        "name": "index.docker.io/${trigger[\"properties\"][\"docker_hub_image\"]}",
+        "reference": "index.docker.io/${trigger[\"properties\"][\"docker_hub_image\"]}",
+        "type": "docker/image"
+      },
+      "id": "784c9f95-80a9-488f-9259-7ea0af9d3de6",
+      "matchArtifact": {
+        "kind": "docker",
+        "name": "index.docker.io/${trigger[\"properties\"][\"docker_hub_image\"]}",
+        "type": "docker/image"
+      },
+      "useDefaultArtifact": true,
+      "usePriorExecution": false
+    }
+  ],
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "anonymous",
+  "limitConcurrent": true,
+  "stages": [
+    {
+      "clusters": [
+        {
+          "account": "k8-cloudstack-account-v1",
+          "application": "discoveryredblack",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [
+                "-Dserver.port=7001",
+                "-jar",
+                "/usr/src/discovery-server-SNAPSHOT.jar"
+              ],
+              "command": [
+                "java"
+              ],
+              "envFrom": [],
+              "envVars": [],
+              "imageDescription": {
+                "artifactId": "784c9f95-80a9-488f-9259-7ea0af9d3de6",
+                "fromArtifact": true,
+                "imageId": "index.docker.io/${trigger[\"properties\"][\"docker_hub_image\"]} (Artifact resolved at runtime)",
+                "name": "index.docker.io/${trigger[\"properties\"][\"docker_hub_image\"]}"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "discovery-server",
+              "ports": [
+                {
+                  "containerPort": 7001,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "events": [],
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "discoveryredblack"
+          ],
+          "namespace": "redblack",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "redblack",
+          "replicaSetAnnotations": {},
+          "securityGroups": [],
+          "strategy": "redblack",
+          "targetSize": 1,
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [],
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy",
+      "refId": "2",
+      "requisiteStageRefIds": [],
+      "type": "deploy"
+    }
+  ],
+  "triggers": [
+    {
+      "enabled": true,
+      "job": "DevOpsPOC_Publish_DiscoverySVR",
+      "master": "DevOps-Jenkins-Master",
+      "propertyFile": "properties.yaml",
+      "type": "jenkins"
+    }
+  ],
+  "updateTs": "1545210640000"
+}
