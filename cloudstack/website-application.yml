@@ -3,9 +3,9 @@ endpoints.health.enabled: true
 hazelcast.max.no.heartbeat.seconds: 6
 
 #admin.application.url: http://216.218.200.209:30007/admin/companies
-admin.application.url: http://216.218.200.252/admin/companies
+admin.application.url: http://104.197.139.214/admin/companies
 
 #news.application.url: http://216.218.200.209:30007/news/twitter
-news.application.url: http://216.218.200.252/news/twitter
+news.application.url: http://104.197.139.214/news/twitter
 
 
